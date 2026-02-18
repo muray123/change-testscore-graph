@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テスト結果分析ツール</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>テスト結果分析ツール</h1>
+        </header>
+
+        <section class="controls">
+            <!-- 教科管理セクション -->
+            <div class="card" id="subject-management">
+                <h2>教科管理</h2>
+                <div class="input-group">
+                    <input type="text" id="new-subject-name" placeholder="新しい教科名">
+                    <button id="add-subject-btn">教科を追加</button>
+                </div>
+                <div id="subject-list">
+                    <!-- 教科リストがここに表示されます -->
+                </div>
+            </div>
+
+            <!-- データ入力セクション -->
+            <div class="card" id="data-entry">
+                <h2>テスト結果入力</h2>
+                <div class="input-group">
+                    <input type="text" id="test-name" placeholder="テスト名 (例: 1学期中間)">
+                    <input type="date" id="test-date">
+                </div>
+                <div id="score-inputs">
+                    <!-- 教科ごとの点数入力フォームがここに動的に生成されます -->
+                </div>
+                <button id="add-test-data-btn" class="primary-btn">データを追加</button>
+            </div>
+        </section>
+
+        <!-- データ一覧表示 -->
+        <section class="data-table-section">
+            <h2>登録済みデータ</h2>
+            <table id="test-data-table">
+                <thead>
+                    <tr>
+                        <th>テスト名</th>
+                        <th>実施日</th>
+                        <th>合計点</th>
+                        <th>詳細</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- データ行がここに追加されます -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- グラフ表示エリア -->
+        <section class="charts-section">
+            <div class="chart-container-full">
+                <h2>成績推移 (線グラフ)</h2>
+                <canvas id="lineChart"></canvas>
+            </div>
+
+            <h2>テスト別内訳 (円グラフ)</h2>
+            <div id="pie-charts-container" class="pie-grid">
+                <!-- テストごとの円グラフがここに追加されます -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
