@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>テスト結果分析ツール</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex, nofollow">
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 </head>
 
 <body>
@@ -40,6 +42,8 @@
                     <!-- 教科ごとの点数入力フォームがここに動的に生成されます -->
                 </div>
                 <button id="add-test-data-btn" class="primary-btn">データを追加</button>
+                <button id="cancel-edit-btn" class="danger-btn"
+                    style="display: none; margin-top: 10px; width: 100%;">キャンセル</button>
             </div>
         </section>
 
@@ -64,9 +68,9 @@
 
         <!-- グラフ表示エリア -->
         <section class="charts-section">
-            <div class="chart-container-full">
-                <h2>成績推移 (線グラフ)</h2>
-                <canvas id="lineChart"></canvas>
+            <h2>成績推移 (教科別)</h2>
+            <div id="line-charts-container" class="chart-grid">
+                <!-- 教科ごとの線グラフがここに追加されます -->
             </div>
 
             <h2>テスト別内訳 (円グラフ)</h2>
